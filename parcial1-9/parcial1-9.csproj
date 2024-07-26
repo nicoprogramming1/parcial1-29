@@ -75,6 +75,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Archivo.cs" />
     <Compile Include="GestionIngredientes.aspx.cs">
       <DependentUpon>GestionIngredientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
