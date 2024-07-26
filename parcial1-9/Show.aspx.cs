@@ -18,17 +18,18 @@ namespace parcial1_9
             if (File.Exists($"{Server.MapPath(".")}/archivo.txt"))
             {
                 StreamReader streamReader = new StreamReader(Server.MapPath(".") + "/archivo.txt");
-                string[] lines = (streamReader.ReadToEnd()).Split('\n');
+                string[] lines = streamReader.ReadToEnd().Split('\n');
                 streamReader.Close();
                 foreach (string line in lines)
                 {
-                    ListBoxReader.Text += $"{line.ToString()}";
+                    ListBoxReader.Items.Add(line);
                 }
             }
             else
             {
-                ListBoxReader.Text = "El archivo no existe";
+                ListBoxReader.Items.Add("El archivo no existe");
             }
+
 
             HttpCookie cookie = Request.Cookies["cookieEmail"];
             string valorLabel = cookie != null ? cookie.Value : null;

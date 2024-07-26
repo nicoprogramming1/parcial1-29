@@ -12,7 +12,7 @@
     <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="GridView1_RowCommand">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:ButtonField ButtonType="Button" CommandName="Cancel" Text="Descargar" />
+            <asp:ButtonField ButtonType="Button" CommandName="Descargar" Text="Descargar" />
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />

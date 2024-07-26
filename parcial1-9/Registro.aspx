@@ -18,7 +18,7 @@
     <asp:Label ID="Label4" runat="server" Text="Edad:"></asp:Label>
     <asp:TextBox ID="TextBoxEdad" runat="server"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxEdad" Display="None" ErrorMessage="Edad Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
-    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBoxEdad" Display="None" ErrorMessage="Edad debe ser entre 5 y 10" ForeColor="Red" MaximumValue="10" MinimumValue="5"></asp:RangeValidator>
+    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBoxEdad" Display="None" ErrorMessage="Edad debe ser entre 5 y 10" ForeColor="Red" MaximumValue="10" MinimumValue="5" Type="Integer"></asp:RangeValidator>
     <br />
     <asp:Label ID="Label5" runat="server" Text="Email: "></asp:Label>
     <asp:TextBox ID="TextBoxEmail" runat="server"></asp:TextBox>

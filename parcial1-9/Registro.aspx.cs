@@ -12,17 +12,7 @@ namespace parcial1_9
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpCookie cookie1 = new HttpCookie("cookieEmail", TextBoxEmail.Text);
-            Response.Cookies.Add(cookie1);
-            cookie1.Expires = DateTime.Now.AddMinutes(12);
-
-            this.Session["sessionUsuario"] = TextBoxUsuario.Text;
-
-            StreamWriter streamWriter = new StreamWriter($"{Server.MapPath(".")}/archivo.txt", true);
-            streamWriter.WriteLine(TextBoxEdad.Text);
-            streamWriter.WriteLine(TextBoxEmail.Text);
-            streamWriter.Close();
-            LabelResult.Text = $"Agregado, ruta de archivo.txt {Server.MapPath(".")} .";
+            
         }
 
         protected void ButtonAdd_Click(object sender, EventArgs e)
@@ -42,9 +32,8 @@ namespace parcial1_9
             else
             {
                 FileUpload1.SaveAs($"{path}/{FileUpload1.FileName}");
+                result += $"El archivo fue agregado - </br>";
             }
-
-            LabelResult.Text += result;
 
             foreach (HttpPostedFile archivo in FileUpload2.PostedFiles)
             {
@@ -55,9 +44,21 @@ namespace parcial1_9
                 else
                 {
                     FileUpload2.SaveAs($"{path}/{archivo.FileName}");
+                    result += $"El archivo {archivo.FileName} fue agregado - </br>";
                 }
             }
-            LabelResult.Text += result;
+
+            HttpCookie cookie1 = new HttpCookie("cookieEmail", TextBoxEmail.Text);
+            Response.Cookies.Add(cookie1);
+            cookie1.Expires = DateTime.Now.AddMinutes(12);
+
+            this.Session["sessionUsuario"] = TextBoxUsuario.Text;
+
+            StreamWriter streamWriter = new StreamWriter($"{Server.MapPath(".")}/archivo.txt", true);
+            streamWriter.WriteLine(TextBoxEdad.Text);
+            streamWriter.WriteLine(TextBoxEmail.Text);
+            streamWriter.Close();
+            LabelResult.Text = $"{result} StreamReader agregado, ruta de archivo.txt {Server.MapPath(".")} .";
         }
     }
 }
