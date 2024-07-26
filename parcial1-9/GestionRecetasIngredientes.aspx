@@ -28,15 +28,16 @@
     <asp:Button ID="ButtonFilter" runat="server" OnClick="ButtonFilter_Click" Text="Filtrar" />
     <asp:Button ID="ButtonUnfilter" runat="server" OnClick="ButtonUnfilter_Click" Text="Desfiltrar" />
     <br />
-    <asp:GridView ID="GridViewRecetasIngredientes" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSourceRecetasIngredientesCRUD" OnSelectedIndexChanged="GridViewRecetasIngredientes_SelectedIndexChanged">
+    <asp:GridView ID="GridViewRecetasIngredientes" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSourceRecetasIngredientesCRUD" OnRowDataBound="GridViewRecetasIngredientes_RowDataBound" OnSelectedIndexChanged="GridViewRecetasIngredientes_SelectedIndexChanged">
         <Columns>
-            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-            <asp:BoundField DataField="cantidad" HeaderText="cantidad" SortExpression="cantidad" />
-            <asp:BoundField DataField="IDReceta" HeaderText="IDReceta" SortExpression="IDReceta" />
-            <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
-            <asp:BoundField DataField="IDIngrediente" HeaderText="IDIngrediente" SortExpression="IDIngrediente" />
-            <asp:BoundField DataField="descripcion" HeaderText="descripcion" SortExpression="descripcion" />
-            <asp:BoundField DataField="NumRecetas" HeaderText="NumRecetas" ReadOnly="True" SortExpression="NumRecetas" />
+            <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+            <asp:BoundField DataField="cantidad" HeaderText="Cantidad" SortExpression="cantidad" />
+            <asp:BoundField DataField="IDReceta" SortExpression="IDReceta" />
+            <asp:BoundField DataField="nombre" HeaderText="Nombre" SortExpression="nombre" />
+            <asp:BoundField DataField="IDIngrediente" SortExpression="IDIngrediente" />
+            <asp:BoundField DataField="descripcion" HeaderText="Descripcion" SortExpression="descripcion" />
+            <asp:BoundField DataField="NumRecetas" HeaderText="Cantidad de recetas por ingrediente" ReadOnly="True" SortExpression="NumRecetas" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowSelectButton="True" />
         </Columns>
     </asp:GridView>
     <br />

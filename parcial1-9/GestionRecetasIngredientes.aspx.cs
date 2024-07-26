@@ -62,9 +62,25 @@ namespace parcial1_9
 
         protected void GridViewRecetasIngredientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TextBoxCantidad.Text = GridViewRecetasIngredientes.SelectedRow.Cells[].Text;
-            DropDownListIngredientes.SelectedValue = GridViewRecetasIngredientes.SelectedRow.Cells[].Text;
-            DropDownListRecetas.SelectedValue = GridViewRecetasIngredientes.SelectedRow.Cells[].Text;
+            TextBoxCantidad.Text = GridViewRecetasIngredientes.SelectedRow.Cells[1].Text;
+            DropDownListIngredientes.SelectedValue = GridViewRecetasIngredientes.SelectedRow.Cells[4].Text;
+            DropDownListRecetas.SelectedValue = GridViewRecetasIngredientes.SelectedRow.Cells[2].Text;
+        }
+
+        protected void GridViewRecetasIngredientes_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                int receta = (int)DataBinder.Eval(e.Row.DataItem, "NumRecetas");
+                if (receta > 1)
+                {
+                    e.Row.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    e.Row.ForeColor = System.Drawing.Color.Green;
+                }
+            }
         }
     }
 }
